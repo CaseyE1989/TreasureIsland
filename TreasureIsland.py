@@ -42,3 +42,4 @@ if action_1 == 'l':
             print("Game Over.")
 else:
     print('You fell into a hole ! Game Over.')
+input()
