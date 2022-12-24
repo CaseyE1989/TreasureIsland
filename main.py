@@ -23,22 +23,46 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 
 print("Welcome Treasure Island!")
 print("Your mission is to find the treasure.")
+number_of_lives = 3
 
-action_1 = str(input("Go (l)eft or (r)ight?: "))
+while number_of_lives != 0:
+    action_1 = str(input("Go (l)eft or (r)ight?: "))
 
-if action_1 == 'l':
-    action_2 = str(input("(s)wim or (w)ait?: "))
-    if action_2 == 's':
-        print('You were attacked by trout! Game over.')
-    else:
-        action_3 = str(input("3 colored doors have appeared! Which Door? (R)ed, (B)lue, or (Y)ellow?: ")).lower()
-        if action_3 == 'r':
-            print("You were burned by fire! Game Over.")
-        elif action_3 == 'b':
-            print("You were eaten by beasts! Game Over.")
-        elif action_3 == 'y':
-            print("You've found the treasure! You Win!")
+    if action_1 == 'l':
+        action_2 = str(input("(s)wim or (w)ait?: "))
+        if action_2 == 's':
+            print('You were attacked by trout!')
+            number_of_lives -= 1
+            if number_of_lives == 1:
+                print(f'You have {number_of_lives} life left')
+            else:
+                print(f'You have {number_of_lives} lives left.')
         else:
-            print("Game Over.")
-else:
-    print('You fell into a hole ! Game Over.')
+            action_3 = str(input("3 colored doors have appeared! Which Door? (R)ed, (B)lue, or (Y)ellow?: ")).lower()
+            if action_3 == 'r':
+                print("You were burned by fire!")
+                number_of_lives -= 1
+                if number_of_lives == 1:
+                    print(f'You have {number_of_lives} life left')
+                else:
+                    print(f'You have {number_of_lives} lives left.')
+            elif action_3 == 'b':
+                print("You were eaten by beasts!")
+                number_of_lives -= 1
+                if number_of_lives == 1:
+                    print(f'You have {number_of_lives} life left')
+                else:
+                    print(f'You have {number_of_lives} lives left.')
+            elif action_3 == 'y':
+                print("You've found the treasure! You Win!")
+            else:
+                print("Game Over.")
+    else:
+        print('You fell into a hole !')
+        number_of_lives -= 1
+        if number_of_lives == 1:
+            print(f'You have {number_of_lives} life left')
+        else:
+            print(f'You have {number_of_lives} lives left.')
+print('Game Over!')
+input()
